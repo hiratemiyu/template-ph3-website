@@ -10,7 +10,7 @@
       </picture>
       <div class="p-top-hero__scroll">Scroll Down</div>
     </div>
-  </section>
+  </section>s
   <!-- /.p-top-hero -->
   <div class="p-top-container">
     <section class="l-section p-top-about">

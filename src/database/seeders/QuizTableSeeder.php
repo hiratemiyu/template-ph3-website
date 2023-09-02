@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Quiz;
+use Faker\Factory as Faker;
+
 
 class QuizTableSeeder extends Seeder
 {
@@ -24,6 +26,16 @@ class QuizTableSeeder extends Seeder
                 'name'=> '自己紹介クイズ',
             ],
         ]);
+
+        // Fakerインスタンスの生成
+        $faker = Faker::create();
+
+        // 100件のダミーデータの生成と挿入
+        foreach (range(3, 100) as $index) {
+            Quiz::create([
+                'name' => $faker->sentence(3),  // 3単語からなる名前をランダムに生成
+            ]);
+        }
     }
 }
 

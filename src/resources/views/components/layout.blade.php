@@ -15,7 +15,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
     rel="stylesheet">
-  <script src="{{ asset('/scripts/common.js')  }}" defer></script>
+  <script src="{{ asset('/scripts/common.js')}}" defer></script>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             <a href="./" class="p-header__nav__item__link">POSSEとは</a>
           </li>
           <li class="p-header__nav__item">
-            <a href="./quiz/" class="p-header__nav__item__link">クイズ</a>
+            <a href="{{ route('quizzes')}}" class="p-header__nav__item__link">クイズ</a>
           </li>
         </ul>
       </nav>

@@ -10,6 +10,12 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = ['image', 'text', 'supplement', 'quiz_id'];
+
+    public function choices()
+    {
+        return $this->hasMany(Choice::class);
+        
+    }
 }
 
 // $table->id();
