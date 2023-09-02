@@ -9,29 +9,11 @@
     })
   }
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
-
-// // モーダルにidを渡す
-// const deleteButtons = document.querySelectorAll('[data-modal-target="popup-modal"]');
-// const confirmDeleteButton = document.getElementById('confirm-delete-button');
-// const modal = document.getElementById('popup-modal');
-
-// deleteButtons.forEach(button => {
-//   button.addEventListener('click', () => {
-//     const quizId = button.getAttribute('data-quiz-id');
-//     confirmDeleteButton.setAttribute('data-quiz-id', quizId);
-//     modal.classList.remove('hidden');
-//   });
-// });
 
   // モーダルの開閉
   const modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
   const modalHideButtons = document.querySelectorAll('[data-modal-hide]');
-
 
   modalToggleButtons.forEach(button => {
     button.addEventListener('click', (event) => {
@@ -56,20 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 削除
-// confirmDeleteButton.addEventListener('click', function() {
-//   const quizId = this.getAttribute('data-quiz-id');
-//   fetch(`/quizzes/${quizId}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-//     }
-//   }).then(response => {
-//     if (response.ok) {
-//       window.location.reload();
-//     }
-//   });
-// });
+
 
 
 }
