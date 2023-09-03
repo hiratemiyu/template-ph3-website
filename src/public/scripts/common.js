@@ -56,20 +56,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 削除
-// confirmDeleteButton.addEventListener('click', function() {
-//   const quizId = this.getAttribute('data-quiz-id');
-//   fetch(`/quizzes/${quizId}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-//     }
-//   }).then(response => {
-//     if (response.ok) {
-//       window.location.reload();
-//     }
-//   });
-// });
-
-
 }
