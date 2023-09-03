@@ -51,7 +51,7 @@ class QuizController extends Controller
 
     public function destroy($id)
     {
-        Quiz::findOrFail($id)->delete();
+        Quiz::find($id)->delete();
         return redirect()->route('quizzes')->with('status', '削除しました！');
     }
 }

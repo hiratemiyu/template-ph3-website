@@ -43,7 +43,7 @@ Route::get('/quizzes/{id}/edit', [QuizController::class, 'edit'])->name('quizzes
 // 更新
 Route::patch('/quizzes/{id}', [QuizController::class, 'update'])->name('quizzes.update');
 // 削除
-Route::delete('/quizzes/{id}', 'QuizController@destroy')->name('quizzes.destroy');
+Route::delete('/quizzes/{id}', [QuizController::class, 'destroy'])->name('quizzes.destroy');
 
 
 Route::get('/users', [UserController::class, 'users']);
