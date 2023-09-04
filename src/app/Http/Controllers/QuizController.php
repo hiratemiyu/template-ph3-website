@@ -51,7 +51,13 @@ class QuizController extends Controller
 
     public function destroy($id)
     {
+        // 論理削除
         Quiz::findOrFail($id)->delete();
         return redirect()->route('quizzes')->with('status', '削除しました！');
+        // プライマリキーを使用してモデルを検索
+        // $user = Quiz::find($id);
+        // // モデルを物理削除
+        // $user->delete();
+        // return redirect()->route('quizzes');
     }
 }

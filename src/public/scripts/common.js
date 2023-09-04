@@ -9,36 +9,31 @@
     })
   }
 
-document.addEventListener('DOMContentLoaded', () => {
-
-  // モーダルの開閉
-  const modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
-  const modalHideButtons = document.querySelectorAll('[data-modal-hide]');
-
-  modalToggleButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      const targetModalId = event.currentTarget.getAttribute('data-modal-target');
-      const targetModal = document.getElementById(targetModalId);
-
-      if (targetModal) {
-        targetModal.classList.toggle('hidden');
-      }
+  // モーダル
+  document.addEventListener('DOMContentLoaded', () => {    
+    const modalToggleButtons = document.querySelectorAll('[data-modal-toggle]');
+    const modalHideButtons = document.querySelectorAll('[data-modal-hide]');
+  
+    modalToggleButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        const targetModalId = event.currentTarget.getAttribute('data-modal-target');
+        const targetModal = document.getElementById(targetModalId);
+  
+        if (targetModal) {
+          targetModal.classList.toggle('hidden');
+        }
+      });
+    });
+  
+    modalHideButtons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        const targetModalId = event.currentTarget.closest('.fixed').id;
+        const targetModal = document.getElementById(targetModalId);
+  
+        if (targetModal) {
+          targetModal.classList.add('hidden');
+        }
+      });
     });
   });
-
-  modalHideButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      const targetModalId = event.currentTarget.closest('.fixed').id;
-      const targetModal = document.getElementById(targetModalId);
-
-      if (targetModal) {
-        targetModal.classList.add('hidden');
-      }
-    });
-  });
-});
-
-
-
-
 }
