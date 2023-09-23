@@ -14,4 +14,5 @@
             </div>
         </div>
     </div>
+        <a href="{{ url('/home') }}" >ホームへ</a>
 </x-app-layout>

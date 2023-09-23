@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -33,8 +35,29 @@ class LoginController extends Controller
      *
      * @return void
      */
+        use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+    // ログインしていたら、ホームページにリダイレクト
+    if (Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+
+    // ログインしていなかったら、ログインフォームを表示
+    return view('auth.login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        dd($user->admin);  // デバッグ用
+        if ($user->admin) { // ここでadminカラムを確認
+            return redirect()->route('quizzes'); // adminならquizzesへ
+        }
+    return redirect($this->redirectTo); // それ以外は通常のリダイレクト先へ
     }
 }

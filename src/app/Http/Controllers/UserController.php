@@ -10,7 +10,7 @@ class UserController extends Controller
     public function users()
     {
         $users = User::all();
-
+        User::where('id', 1)->update(['admin' => true]);
         return view('users', compact('users'));
     }
 }
