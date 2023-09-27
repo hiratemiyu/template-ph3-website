@@ -37,13 +37,19 @@ Route::get('/index', function () {
 });
 
 Route::get('/quizzes', [QuizController::class, 'quiz'])->name('quizzes');
-Route::get('/quizzes/{id}', [QuizController::class, 'show'])->name('quizzes.show');
+
+// 新規作成
+Route::get('/quizzes/create', [QuizController::class, 'create'])->name('quizzes.create');
+// 保存
+Route::post('/quizzes', [QuizController::class, 'store'])->name('quizzes.store');
 // 編集
 Route::get('/quizzes/{id}/edit', [QuizController::class, 'edit'])->name('quizzes.edit');
 // 更新
 Route::patch('/quizzes/{id}', [QuizController::class, 'update'])->name('quizzes.update');
 // 削除
 Route::delete('/quizzes/{id}', 'QuizController@destroy')->name('quizzes.destroy');
+// なにこれ
+// Route::get('/quizzes/{id}', [QuizController::class, 'show'])->name('quizzes.show');
 
 
 Route::get('/users', [UserController::class, 'users']);

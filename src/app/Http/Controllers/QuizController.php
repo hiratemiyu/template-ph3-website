@@ -80,14 +80,23 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
-            // バリデーションを最初に行う
+        // バリデーションを最初に行う
         $request->validate([
         'title' => 'required|max:200',  // タイトルは必須で、最大200文字まで
         'question' => 'required',        // 問題文も必須
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 画像は必須ではない
         ]);
+
+        $imageName = null;
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->storeAs('public/images', $imageName);
+        }
+        
         // quizzesテーブルに保存
         $quiz = Quiz::create([
-            'name' => $request->title, 
+        'name' => $request->title,
+        'image' => $imageName,
         ]);
     
         // questionsテーブルに保存
@@ -106,6 +115,13 @@ class QuizController extends Controller
                 'is_correct' => in_array($index, $is_correct) ? 1 : 0,  // 正解なら1、そうでなければ0
             ]);
         }
+
+        $imageName = null;
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->storeAs('public/images', $imageName);
+        }
+        
         return redirect()->route('quizzes');
         }
 

@@ -27,11 +27,13 @@
     </div>
 </nav> --}}
 
-    <div class="flex justify-end mt-6 mr-4">
-        <a href="http://localhost/quizzes/create">
-            <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">新規作成</button>
-        </a>    
-    </div>
+<div class="flex justify-end mt-6 mr-4">
+    <a href="http://localhost/quizzes/create" class="inline-block">
+        <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+            新規作成
+        </button>
+    </a>    
+</div>
 
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg -mt-9">

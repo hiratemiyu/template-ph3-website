@@ -1,5 +1,5 @@
 <h1>新規クイズ作成</h1>
-<form method="post" action="{{ route('quizzes.store') }}">
+<form method="post" action="{{ route('quizzes.store') }}"  enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="title">クイズのタイトル</label>
@@ -11,6 +11,13 @@
     <div class="form-group">
         <label for="question">問題文</label>
         <textarea id="question" name="question" class="form-control" rows="4" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="image">画像アップロード</label>
+        <input type="file" id="image" name="image" class="form-control-file">
+        @error('image')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
     </div>
     <div class="form-group">
         <label for="choice1">選択肢 1</label>
